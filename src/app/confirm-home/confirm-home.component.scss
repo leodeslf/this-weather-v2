@@ -1,0 +1,57 @@
+@import "../../styles.scss";
+
+.confirm-home-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: none;
+  display: grid;
+}
+
+.confirm-home {
+  @include box-shadow(3);
+  align-items: center;
+  align-self: flex-end;
+  background-color: $bg-color--secondary;
+  border-radius: 3px;
+  color: adjust-color($color--secondary, $lightness: 17%);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-self: right;
+  margin: 1rem;
+  max-width: fit-content;
+  padding: 0.5rem;
+  pointer-events: all;
+}
+
+.question {
+  padding: 0.5rem 1rem;
+}
+
+.yes {
+  font-weight: 500;
+  color: hsl(120, 90%, 40%);
+}
+
+@media screen and (max-width: 599px) {
+  .confirm-home {
+    grid-template-columns: unset;
+  }
+
+  .question {
+    grid-column: 1 / 3;
+    margin-bottom: 1rem;
+  }
+
+  .no {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
+
+  .yes {
+    grid-column: 3 / 4;
+    grid-row: 2 / 3;
+  }
+}

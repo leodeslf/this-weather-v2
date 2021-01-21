@@ -1,0 +1,55 @@
+@import "../styles.scss";
+
+.this-weather-v2 {
+  min-height: 100vh;
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  @media screen and (max-width: 599px) {
+    & {
+      padding: 1rem;
+    }
+  }
+}
+
+.card-container {
+  align-content: center;
+  align-items: baseline;
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem;
+  margin: 1rem 0;
+  @media screen and (max-width: 599px) {
+    & {
+      flex-flow: column;
+      align-items: stretch;
+      gap: 1rem;
+      padding: 1rem 0;
+    }
+  }
+}
+
+.search-box {
+  position: relative;
+  display: flex;
+  place-content: center;
+  padding-top: 1rem;
+}
+
+.search-input {
+  border: none;
+  border-radius: 3px;
+  padding: 0.6rem 1rem 0.5rem;
+  transition: width 200ms ease-out;
+  width: clamp(30ch, 35vw, 40ch);
+  border: 1px solid $shadow-color;
+  &:focus {
+    width: clamp(35ch, 40vw, 45ch);
+  }
+  &.loading {
+  }
+}

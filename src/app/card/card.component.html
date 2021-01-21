@@ -1,0 +1,22 @@
+<div
+  *ngIf="!loading"
+  [ngClass]="{ 'card': true, 'here': data.here }">
+  <div class="content">
+    <h3 class="name">{{data.name}}</h3>
+    <p class="text">{{data.text}}</p>
+    <p class="temp">{{data.temp}}°</p>
+    <svg class="icon" viewBox="0 0 70 70" fill="currentColor">
+      <use [attr.xlink:href]="data.icon"></use>
+    </svg>
+    <button class="delete"
+      name="Eliminar"
+      title="Eliminar"
+      *ngIf="!isHome"
+      (click)="deleteCard()">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+        x="0px" y="0px" viewBox="0 0 16 16" enable-background="new 0 0 16 16" xml:space="preserve">
+        <use xlink:href="#close"></use>
+      </svg>
+    </button>
+  </div>
+</div>

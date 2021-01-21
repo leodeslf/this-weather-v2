@@ -1,0 +1,71 @@
+// Color.
+$color: rgb(8, 8, 8);
+$color--secondary: hsl(0, 0%, 40%);
+$color--placeholder: hsl(0, 0%, 55%);
+
+// Background.
+$bg-color: rgb(255, 255, 255);
+$bg-color--secondary: rgb(16, 16, 16);
+
+// Other
+$shadow-color: rgba(0, 0, 0, 0.15);
+
+@mixin box-shadow($h) {
+  box-shadow: 0 1px 2px $shadow-color, 0 (1px * $h) (3px * $h) (1px * $h) $shadow-color;
+}
+
+:root {
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+  background-color: $bg-color;
+  color: $color;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.25em;
+}
+
+footer {
+  color: $color--secondary;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 599px) {
+    font-size: 0.8rem;
+  }
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+input {
+  font: inherit;
+  &::placeholder {
+    color: $color--placeholder;
+  }
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  border-radius: 3px;
+  color: inherit;
+  cursor: pointer;
+  font: inherit;
+  padding: 0.5rem 1rem;
+}
+
+svg {
+  color: $color--secondary;
+  fill: currentColor;
+}
