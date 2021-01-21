@@ -30,10 +30,9 @@ export class AppComponent implements OnInit {
   cards: Card[] = [];
   home: string;
   homeConfirmed: boolean = localStorage.getItem('home') !== null;
-  //loading: boolean = true;
   message: string = '';
   messageTimeOut: any;
-  query: string = "";
+  query: string = '';
 
   ngOnInit(): void {
     // Try to get a previously confirmed home query.
@@ -54,19 +53,15 @@ export class AppComponent implements OnInit {
       });
     }).catch(() => {
       console.error('Problems with api.ipdata.co');
-    }).finally(() => {
-      //this.loading = false;
     });
   }
 
   setHomeByGPS(): void {
     navigator.geolocation.getCurrentPosition(pos => {
-      // Delete automatically home
       this.home = `lat=${pos.coords.latitude}&lon=${pos.coords.longitude}`;
       this.checkQuery(this.home, true);
       this.saveHome();
       this.homeConfirmed = true;
-      //this.loading = false;
     });
   }
 
@@ -104,7 +99,6 @@ export class AppComponent implements OnInit {
 
   checkQuery(query: string, isHome?: boolean): void {
     if (query === '') return;
-    //this.loading = true;
     this.query = '';
     this.message = 'Cargando...';
     fetch(this.getFinalURL(query)).then(res => {
@@ -133,8 +127,6 @@ export class AppComponent implements OnInit {
       this.message = `Sin resultados para "${query}"`;
       clearTimeout(this.messageTimeOut);
       this.messageTimeOut = setTimeout(() => this.message = '', 3500);
-    }).finally(() => {
-      //this.loading = false;
     });
   }
 
