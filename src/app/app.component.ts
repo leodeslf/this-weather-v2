@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 const ipdata = [
   'https://api.ipdata.co/es?',
   'api-key=e74737cb776b0fb96e8fd1241bc119c7438e15e55e224cea3e5b333a&',
-  /* 'fields=city,country_code' */
+  'fields=city,country_code'
 ].join('');
 
 const openweatherapi = [
